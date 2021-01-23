@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8>
+    <meta name="description" content="Joab Berhane code Portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Joab's Code</title>
+  </head>
+  <body style="background-color: lightpink;">
+    <style>
+    h1 {text-align: center;}
+    h3  {text-align: center;}
+    </style>
+
+     <h1><b>Joab Python Voice assistant</b></h1>
+     <hr/> 
+    <h3>
+        <pre>
+          <u>  Below is the code I have written to make my voice assitant in python</u>
+        </pre>
+
+    </h3>
+     <p>
+        <pre>
+        import os
+        import time
+        import playsound
+        import speech_recognition as sr
+        from gtts import gTTS
+        
+        def speak(text):
+            tts = gTTS(text=text, lang="en")
+            filename="voice.mp3"
+            tts.save(filename)
+            playsound.playsound(filename)
+        
+        def get_audio():
+            r = sr.Recognizer()
+            with sr.Microphone() as source:
+                audio = r.listen(source)
+                said = ""
+        
+                try:
+                    said = r.recognize_google(audio)
+                    print(text)
+                except Exception as e:
+                    print("Exception: " + str(e))
+        
+            return said
+        text = get_audio()
+        name = "Jessica"
+        
+        
+        def main():
+            while True:
+                if "friend" in text:
+                    speak("hello friend")
+                if "year" in text:
+                    speak("It's 2020 Joab.")
+                if "good" in text:
+                    speak("Hey guys vote for Joab, he is the best for numerous reasons. Here's some of the experience he has. His greatest invention is me of cource, but he has more experience than that. He is the vice president of the computer science class where he taught over 100 students")
+                if "dad" in text:
+                    speak("hello dad, how are you")
+                elif "what is your name" in text:
+                    speak("My name is janice")
+                elif "how are you" in text:
+                    speak("I'm doing great thanks for asking")
+                elif "carboxylic acid" in text:
+                    speak("A double bond Oxygen and a single bond O H to a carbon")
+                elif "done" in text:
+                    speak("I'll always be here if any troubles occur, bye for now Joab")
+                    exit()
+            </pre>
+        main()</p>
+  </body>
+</html>
